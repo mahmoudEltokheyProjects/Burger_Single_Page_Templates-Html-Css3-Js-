@@ -1,0 +1,617 @@
+*
+{
+	font-family: sans-serif ;
+	box-sizing: border-box ;
+}
+body
+{
+	padding: 0 ;
+	margin: 0 ;
+}
+/* ********************************* navbar section *********************************  */
+.navbarClass
+{
+	position: fixed; 
+/*	border: 2px solid #f00;*/
+	width: 100% ;
+	padding: 5px;
+	height: auto ;
+	overflow: hidden ;
+	z-index: 999 ;
+}
+.navbarClass .navbarContainerClass
+{
+/*	border: 2px solid #0f0;*/
+	width: 90% ;
+	height: auto ;
+	overflow: hidden ;
+	margin: 0px auto ;
+}
+/* *************** logo ****************** */
+/* ************ navbar links  *********** */
+.navbarClass .navbarContainerClass  .logoClass ,
+.navbarClass .navbarContainerClass  .linksClass 
+{
+	height: auto ;
+	overflow: hidden ;
+/*	margin-top: 10px ;*/
+}
+/* *************** logo ****************** */
+.navbarClass .navbarContainerClass  .logoClass 
+{
+	float: left ;
+	width: 30%;
+/*	border: 2px solid #00f;*/
+}
+/* *********** logo image ********* */
+.navbarClass .navbarContainerClass  .logoClass img
+{
+	width: 200px ; 
+	height: 50px;
+}
+/* *********** navbar links  ********* */
+.navbarClass .navbarContainerClass  .linksClass 
+{
+	float: right;
+	text-align: right ;
+	width: 70%;
+/*	border: 2px solid #000;    */
+	padding: 3px ;
+}
+/* ********************** navbar links : <ul></ul>  ****************** */
+.navbarClass .navbarContainerClass  .linksClass ul
+{
+	list-style: none ;
+}
+/* *********** navbar links : <ul></ul>  <li></li>  *************** */
+.navbarClass .navbarContainerClass  .linksClass ul li
+{
+	display: inline-block ;
+	margin: 0px 20px ;
+}
+/* *********** navbar links : <ul></ul>  <li></li>  *************** */
+.navbarClass .navbarContainerClass  .linksClass ul li a
+{
+	text-decoration: none ;
+	color: #fff ;
+	text-transform: uppercase ;
+	font-weight: bold ;
+	font-size: 16px ;
+	transition: 0.5s ease-in-out ;
+}
+/* *********** navbar links : <ul></ul>  <li></li> <a></a> : hover  *************** */
+.navbarClass .navbarContainerClass  .linksClass ul li a.active
+{ 
+	color: rgb(255,50,0);
+}
+/* *********** navbar links : <ul></ul>  <li></li> <a></a> : hover  *************** */
+.navbarClass .navbarContainerClass  .linksClass ul li a:hover
+{
+	color: rgb(255,50,0);
+}
+/* ************************* menubar icon of header section ******************** */
+.inputFieldClass , .menuBarContainer
+{
+	position: absolute ;
+	top: 15px ;
+	right:5px ;
+}
+.inputFieldClass
+{
+	display: none ;
+}
+.menuBarContainer
+{
+/*	border: 2px solid #00f ;*/
+	
+	cursor: pointer;
+	/* from min-width=0px to max-width=843px  مش هيظهر الا في الشاشات اللي حجمها */
+	display: none ;
+}
+.menuBarContainer span
+{
+	display: block; 
+	margin: 6px;
+	width: 35px;
+	height: 3px;
+	padding: 2px;
+	background-color: #fff ;
+	/* smooth يحصل التحول بشكل x الي علامة ال menubar icon عشان لما يحصل تحويل لل */
+	transition: 0.4s ;
+}
+.inputFieldClass:checked ~  label .menubarSpan1
+{
+	-webkit-transform: rotate(-45deg) translate(-8px, 6px);
+			transform: rotate(-45deg) translate(-8px, 6px) ;
+}
+.inputFieldClass:checked ~ label .menubarSpan2
+{
+	opacity: 0 ;
+}
+.inputFieldClass:checked ~ label .menubarSpan3
+{
+	-webkit-transform: rotate(45deg) translate(-8px, -6px);
+			transform: rotate(45deg) translate(-8px, -6px) ;
+}
+/* ************ navbar links  *********** */
+.navbarClass .navbarContainerClass .inputFieldClass:checked  ~  .linksClass  ,
+.navbarClass .navbarContainerClass .inputFieldClass:checked  ~  .logoClass  
+{
+    /* when click on menubar icon , navbar links will appear */
+    display: block;
+} 
+
+/* ##################################### Responsive ######################################## */
+@media (min-width:0px) and (max-width:843px)  
+{ 
+	.menuBarContainer
+	{
+		display: block;
+	}
+	/* *************** logo ****************** */
+	/* ************ navbar links  *********** */
+	.navbarClass .navbarContainerClass  .logoClass  ,
+	.navbarClass .navbarContainerClass  .linksClass 
+	{	
+	 	display: block;
+        width: 100%;
+        float: none;
+	}
+	/* *********** navbar links  ********* */
+	.navbarClass .navbarContainerClass  .linksClass 
+	{
+		/* when click on menubar icon , navbar links will appear */
+        display: none;
+        margin-bottom: 25px;
+		background-color: #000 ;
+	}
+	/* *********** navbar links : <ul></ul>  <li></li>  *************** */
+	.navbarClass .navbarContainerClass  .linksClass ul li
+	{
+		width: 100%;
+		margin-top: 30px; 
+        padding-bottom: 10px;
+		text-align: center ;
+		margin-left: 0 ;
+		margin-right: 0 ;
+	}
+	/* *********** navbar links : <ul></ul>  <li></li> <a></a>  *************** */
+	.navbarClass .navbarContainerClass  .linksClass ul li a
+	{
+		color: #fff;
+	}
+}
+/* ********************************* header section ********************************* */
+.headerClass
+{
+ /* header اكبر من ال z-index هي الطبق الاعلي حيث هعطيه navbar في اعلي شمال الصفحة وهخلي ال header فهثبت ال header يظهر فوق ال navbar عشان اخلي ال */
+    position: relative; 
+    top: 0 ;
+    left: 0 ;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	background-color: rgb(255,192,69);
+	z-index: 111 ;
+}
+.headerClass .headerContainerClass
+{
+/*	border: 2px solid #00f;*/
+	width: 90% ;
+	height: auto ;
+	overflow: hidden ;
+	margin: 0px auto ;
+	margin-top: 100px  ;
+	padding-top: 50px ;
+}
+/* ********* header info  ********** */
+.headerClass .headerContainerClass .headerInfo 
+{
+	float: left ;
+}
+/* ********* header image ********* */
+.headerClass .headerContainerClass .headerImgContainer 
+{	
+	float: right ;
+}
+/* ********* header info  ********** */
+.headerClass .headerContainerClass .headerInfo 	
+{
+	width: 30% ;
+/*	border: 2px solid #f00;*/
+	margin-top: 22%  ;
+}
+/* ********* header info  ********** */
+.headerClass .headerContainerClass .headerInfo 	h2
+{
+	font-size: 50px;
+	text-transform: uppercase ;
+	color: #490707; 
+}
+/* ********* header image ********* */
+.headerClass .headerContainerClass .headerImgContainer
+{
+	width: 70% ;
+/*	border: 2px solid #0f0;*/
+	/* ------------  .headerImgContainer عشان الصورة تيجي علي يمين الديف اللي واخد كلاس ------------ */
+	text-align: right ;
+}
+/* ********* header image : <img>  ********* */
+.headerClass .headerContainerClass .headerImgContainer img 
+{ 
+	width: 80%; 
+}
+/* ##################################### Responsive ######################################## */
+@media (min-width:0px) and (max-width:843px)  
+{ 
+	/* ********* header info  ********** */
+	.headerClass .headerContainerClass .headerInfo 	h2
+	{
+		font-size: 30px;
+		text-transform: uppercase ;
+	}
+}
+/* *************************************************** menu section *********************************************  */
+.menuClass
+{
+/*	border: 2px solid #f0f;*/
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	background-color: rgb(240,240,240);
+	padding-top: 20px;
+	/* navbar عشان يكون هو الطبقة اللي هتظهر وراء طبقة ال */
+	z-index: 111 ;
+}
+.menuClass  .menuContainerClass
+{	
+/*	border: 2px solid #ff0;*/
+	width: 90% ;
+	height: auto ;
+	overflow: hidden ;
+	margin: 0px auto ;
+}
+/* ****************** left part of menu section ****************** */
+/* ****************** right part of menu section ***************** */
+.menuClass  .menuContainerClass .menuLeftPart  ,
+.menuClass  .menuContainerClass .menuRightPart
+{
+	/* total_width = width + margin_left + margin_right = 48 +1 + 1 = 50%	*/
+	width: 49% ;
+	margin: 0.5% ;
+	height: auto ;
+	overflow: hidden ;
+}
+/* ****************** left part of menu section ****************** */
+.menuClass  .menuContainerClass .menuLeftPart  
+{
+	float: left ;
+/*	border: 2px solid #f00;*/
+}
+/* ****************** left part of menu section : two <img> ***************** */
+.menuClass  .menuContainerClass .menuLeftPart img
+{
+	width: 100% ;
+}
+/* ****************** right part of menu section ***************** */
+.menuClass  .menuContainerClass .menuRightPart
+{
+	float: right ;	
+/*	border: 2px solid #00f;*/
+}
+/* ****************** right part of menu section : two <img> ***************** */
+.menuClass  .menuContainerClass .menuRightPart img
+{
+	width: 100%; 
+}
+/* ****************** right part of menu section : image 1 container ***************** */
+.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg1 ,
+.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg2 
+{
+/*	border: 2px solid #f00;*/
+	height: auto ;
+	overflow: hidden ;
+}
+/* ****************** right part of menu section : image 1 container ***************** */
+.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg1
+{
+	margin-bottom: 15px;
+}
+/* ****************** right part of menu section : image 1 , image 2 container ***************** */
+.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg1 img ,
+.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg2 img
+{
+	width: 100%; 
+}
+/* ********* button container : always tasty burger  ********* */
+.menuClass   .menuBtnClass
+{
+	display: block ;
+/*	border: 2px solid #000;*/
+	width: 300px;
+	height: auto;
+	overflow: hidden ;
+	margin: 30px auto ;
+}
+/* ********* button  : always tasty burger  ********* */
+.menuClass   .menuBtnClass button
+{
+	width: 100%;
+	cursor: pointer ;
+	text-transform: uppercase ;
+	font-size: 25px ;
+	padding: 10px ;
+	font-weight: bold ;
+	color: #490707; 
+	background-color: rgb(240,200,0);	
+	border: 0 ;
+	outline: 0 ;
+}
+/* ##################################### Responsive ######################################## */
+@media (min-width:0px) and (max-width:843px)  
+{
+	/* ************ left part of menu section  *************** */
+	/* ************ right part of menu section *************** */
+	.menuClass  .menuContainerClass .menuLeftPart  ,
+	.menuClass  .menuContainerClass .menuRightPart
+	{
+		/* total_width = width + margin_left + margin_right = 48 +1 + 1 = 50%	*/
+		width: 90% ;
+		margin: 5% ;
+		height: auto ;
+		overflow: hidden ;
+	}
+	.menuClass  .menuContainerClass .menuLeftPart 
+	{
+		margin-bottom: 0 ;
+	}
+	/* ****************** right part of menu section : image 1 , 2 container ***************** */
+	.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg1 ,
+	.menuClass  .menuContainerClass .menuRightPart .menuRightPartImg2 
+	{
+		width: 100%;
+		margin-bottom: 5%;
+	}	
+}
+/* ********************************************** out story section ************************************************  */
+.outStoryClass
+{
+/*	border: 2px solid #f0f;*/
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	background-color: rgb(240,240,240);
+	padding-top: 20px;
+	text-align: center ;
+}
+.outStoryClass  .outStoryContainerClass
+{	
+/*	border: 2px solid #ff0;*/
+	width: 90% ;
+	height: auto ;
+	overflow: hidden ;
+	margin: 0px auto ;
+}
+.outStoryClass  .outStoryContainerClass h2
+{
+	font-size: 50px ;
+	text-transform: uppercase ;
+	margin-top: 20px ;
+	margin-bottom: 20px ;
+	color: #490707; 
+}
+.outStoryClass  .outStoryContainerClass .ourStoryHeadPara
+{
+	padding-left: 100px;
+	padding-right: 100px;
+	font-size: 18px;
+	color: #490707; 
+	line-height: 1.5 ;
+	margin-bottom: 50px ;
+}
+/* ################## 3 boxes container of menu section ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer
+{
+/*	border: 2px solid #f00;*/
+	width: 80% ;
+	height: auto ;
+	overflow: hidden; 
+	margin: 20px auto ;
+}
+/* ################## common properities of boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox
+{
+/*	border: 2px solid #0f0;*/
+	width: 31.333% ;
+	float: left ;
+	margin: 1% ;
+}
+/* ################## images boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox img
+{
+	width: 100%   ;
+	height: 300px ;	
+}
+/* ################## h4 boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox h4
+{
+	font-size: 20px;
+	text-transform: uppercase ;
+}
+/* ################## h4 boxes of menu ################## */
+/* ################## p boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox h4 ,
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox .ourStoryPara 
+{
+	padding-left: 10px ;
+	padding-right: 10px ;	
+}
+/* ################## p boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox .ourStoryPara 
+{
+	line-height: 1.5 ;
+}
+/* ################## button boxes of menu ################## */
+.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox .orderNowBtn 
+{
+	width: 150px  ; 
+	padding: 15px ;
+	font-size: 16px ;
+	font-weight: bold ;
+	text-transform: uppercase ;
+	border-radius: 20px; 
+	border: 0 ;
+	outline: 0 ;
+	background-color: #f00 ;
+	cursor: pointer ;
+	color: #fff ;
+	margin-bottom: 20px ;
+}
+/* ##################################### Responsive ######################################## */
+@media (min-width:0px) and (max-width:843px)  
+{
+	.outStoryClass  .outStoryContainerClass h2
+	{
+		font-size: 40px ;
+	}
+	.outStoryClass  .outStoryContainerClass .ourStoryHeadPara
+	{
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 16px ;
+	}
+	/* ################## common properities of boxes of menu ################## */
+	.outStoryClass  .outStoryContainerClass  .outStoryImgContainer .outStoryBox
+	{
+/*		border: 2px solid #0f0;*/
+		width: 90% ;
+		float: none;
+		margin: 5% ;
+	}
+}
+/* ******************************************** contact us section ***************************************** */
+.contactUsClass
+{
+/*	border: 2px solid #f0f;*/
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	background-color: rgb(240,240,240);
+	padding-top: 20px;
+	text-align: center ;
+}
+.contactUsClass .contactUsContainerClass
+{
+/*	border: 2px solid #ff0;*/
+	width: 90% ;
+	height: auto ;
+	overflow: hidden ;
+	margin: 0px auto ;	
+}
+.contactUsClass .contactUsContainerClass ul
+{
+	list-style: none ;
+}
+/* ------------ 3 <li></li> of contactUsClass : paragraph , image , social Icons ------------ */
+.contactUsClass .contactUsContainerClass ul .paraListItem 	 ,
+.contactUsClass .contactUsContainerClass ul .imgListItem	 ,
+.contactUsClass .contactUsContainerClass ul .iconsListItem
+{
+	float: left ;
+	width: 31.3333% ;
+	margin: 1% ;
+/*	border: 2px solid #00f;*/
+}
+/* ------------ 2 <li></li> of contactUsClass : paragraph , image ------------ */
+.contactUsClass .contactUsContainerClass ul .paraListItem 	 ,
+.contactUsClass .contactUsContainerClass ul .imgListItem	 
+{
+	margin-top: 50px ;
+}
+/* ------------ 1 <li></li> of contactUsClass : paragraph  ----------- */
+.contactUsClass .contactUsContainerClass ul .paraListItem 	 
+{
+	text-transform: capitalize ;
+	font-weight: bold ;
+}
+/*  ---------------- <li></li> of image ---------------- */
+.contactUsClass .contactUsContainerClass ul .imgListItem img
+{
+	width: 100% ;
+}
+/*  ---------------- <ul><ul> of social icons ---------------- */
+.contactUsClass .contactUsContainerClass ul .iconsListItem .socialIconsUl
+{
+	list-style: none ;
+	text-align: left ;
+	margin-bottom: 5px;
+	padding: 0 ;
+}
+/*  ---------------- <li><li> of social icons ---------------- */
+.contactUsClass .contactUsContainerClass ul .iconsListItem .socialIconsUl li
+{
+	margin-bottom: 10px; 
+	text-transform: capitalize ;
+	font-weight: bold ;
+}
+/*  ---------------- <li> <a></a> <li>  of social icons ---------------- */
+.contactUsClass .contactUsContainerClass ul .iconsListItem .socialIconsUl li a
+{
+	color: #000 ;
+	text-transform: capitalize ;
+	text-decoration: none ;
+	font-weight: bold ;
+}
+/*  ------------- <li> <a></a> <li>  of social icons : facebook,twitter,instagram,youtube icon ---------------- */
+.contactUsClass .contactUsContainerClass ul .iconsListItem .socialIconsUl li a  i
+{
+	margin-right: 5px; 
+	font-size: 25px ;
+}
+/* ##################################### Responsive ######################################## */
+@media (min-width:0px) and (max-width:843px)  
+{
+	/* ------------ 3 <li></li> of contactUsClass : paragraph , image , social Icons ------------ */
+	.contactUsClass .contactUsContainerClass ul .paraListItem 	 ,
+	.contactUsClass .contactUsContainerClass ul .imgListItem	 ,
+	.contactUsClass .contactUsContainerClass ul .iconsListItem
+	{
+		float: none;
+		width: 90% ;
+		margin: 5% ;
+/*		border: 2px solid #00f;*/
+	}
+}
+/* ***************************** download app ************************  */
+.contactUsClass  .contactUsContainerClass .downloadApp
+{
+	
+/*	border: 2px solid #f0f;*/
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	background-color: rgb(240,240,240);
+	padding-top: 20px;
+	text-align: center ;
+}
+/* ***************************** 2 image : download app ************************  */
+.contactUsClass  .contactUsContainerClass .downloadApp 	img
+{
+	width: 300px ;
+	margin-top: 10px ;
+	margin-bottom: 10px ;
+}
+/* ********************************* footer ********************************* */
+.footerClass
+{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+	text-align: center ;
+	border-top: 1px solid #ccc;
+}
+.footerClass  .paraFooter
+{
+	text-transform: capitalize; 
+	font-weight: bold ;
+}
